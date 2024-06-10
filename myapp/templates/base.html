@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Calorie Tracker {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="bg-gray-900 py-4">
+        <div class="container mx-auto">
+            <ul class="flex space-x-6">
+                <li><a href="{% url 'index' %}" class="text-white hover:text-gray-300">Home</a></li>
+                <li><a href="{% url 'add_food_item' %}" class="text-white hover:text-gray-300">Add Food Item</a></li>
+                <li><a href="{% url 'reset' %}" class="text-white hover:text-gray-300">Reset</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mx-auto mt-6">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
